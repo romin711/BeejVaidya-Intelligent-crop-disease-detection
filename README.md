@@ -32,6 +32,7 @@
 ## 📋 Table of Contents
 
 - [✨ Overview](#-overview)
+- [✅ Latest Validation](#-latest-validation)
 - [🛠️ Tech Stack](#️-tech-stack)
 - [📁 Project Structure](#-project-structure)
 - [🚀 Backend API](#-backend-api)
@@ -72,6 +73,27 @@
 <td>Clean HTML/CSS/JS upload UI with result display</td>
 </tr>
 </table>
+
+---
+
+## ✅ Latest Validation
+
+Current verified status from the latest local run:
+
+- Backend startup completed successfully (`/health` and `/predict` responded `200 OK`)
+- Frontend static files loaded correctly (`index.html`, `style.css`, `script.js`)
+- Late blight diagnostic check passed on 5/5 test samples
+- Model file `models/crop_disease_model.h5` loaded correctly at startup
+
+### Late Blight Sanity Check (recent run)
+
+| Metric | Result |
+|--------|--------|
+| Samples tested | 5 |
+| Correct `late_blight` predictions | 5 |
+| Pass rate | 100% |
+
+---
 
 ---
 
@@ -272,8 +294,6 @@ python -m pip install --upgrade pip setuptools wheel
 python -m pip install -r requirements.txt
 ```
 
-> ⚠️ **Why Python 3.10?** TensorFlow wheels are not available for Python 3.14 in this project setup.
-
 ---
 
 ### Step 2 — Configure Environment Variables
@@ -362,6 +382,19 @@ Then open **[http://127.0.0.1:5500](http://127.0.0.1:5500)** in your browser. �
 
 </details>
 
+<details>
+<summary>ℹ️ TensorFlow CUDA/CPU startup messages</summary>
+
+Messages like these are expected on CPU-only machines and do not indicate a failure:
+
+- `Could not find cuda drivers on your machine, GPU will not be used`
+- `failed call to cuInit: ... UNKNOWN ERROR (303)`
+- `model.compile_metrics will be empty`
+
+Inference still works normally on CPU when the API logs `Model loaded successfully`.
+
+</details>
+
 ---
 
 ## 🌐 Environment Variables
@@ -398,7 +431,7 @@ const API_URL = "http://127.0.0.1:8000/predict"
 
 <div align="center">
 
-Made with ❤️ for farmers &nbsp;·&nbsp; Powered by 🤖 AI &nbsp;·&nbsp; Built with 🐍 Python
+Made for farmers &nbsp;·&nbsp; Powered by 🤖 AI &nbsp;·&nbsp; Built with 🐍 Python
 
 **BeejVaidya** — *Bringing intelligent crop diagnostics to every field* 🌾
 
