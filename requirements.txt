@@ -1,0 +1,8 @@
+tensorflow
+numpy
+pillow
+scikit-learn
+matplotlib
+fastapi
+uvicorn
+kaggle
