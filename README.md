@@ -1,37 +1,108 @@
-# BeejVaidya
+<div align="center">
 
-**Beej** (Seed) **Vaidya** (Doctor) — Intelligent crop disease detection for farmers.
+<h1>🌿 BeejVaidya</h1>
 
-End-to-end crop disease detection project with:
-- A FastAPI backend for inference
-- A TensorFlow/Keras image classification model
-- Utility modules for treatment + explanation generation
-- A simple HTML/CSS/JavaScript frontend
+<p><strong>बीज वैद्य</strong> &nbsp;|&nbsp; <em>Seed Doctor</em></p>
 
-The current model predicts three classes:
-- `early_blight`
-- `healthy`
-- `late_blight`
+<p><em>Intelligent Crop Disease Detection for Farmers</em></p>
 
-## Tech Stack
+<p>
+  <img src="https://img.shields.io/badge/Python-3.10-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.10"/>
+  <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI"/>
+  <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow"/>
+  <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white" alt="OpenAI"/>
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License"/>
+</p>
 
-- Python 3.10 (recommended for TensorFlow compatibility)
-- FastAPI + Uvicorn
-- TensorFlow / Keras (MobileNetV2 transfer learning)
-- NumPy
-- Pillow
-- Scikit-learn (dependency listed)
-- Matplotlib (dependency listed)
-- Vanilla frontend: HTML, CSS, JavaScript (`fetch`, `FormData`)
-- Optional LLM explanation via OpenAI Chat Completions API
+<p>
+  <img src="https://img.shields.io/badge/Model-MobileNetV2-orange?style=flat-square" alt="MobileNetV2"/>
+  <img src="https://img.shields.io/badge/Classes-3-blue?style=flat-square" alt="3 Classes"/>
+  <img src="https://img.shields.io/badge/Input-224×224-purple?style=flat-square" alt="Input Size"/>
+  <img src="https://img.shields.io/badge/Confidence%20Threshold-75%25-red?style=flat-square" alt="Confidence Threshold"/>
+</p>
 
-## Project Structure
+---
+
+> 🌱 **Beej** (Seed) · 🩺 **Vaidya** (Doctor) — AI-powered plant health diagnostics bringing modern ML to the farm.
+
+</div>
+
+---
+
+## 📋 Table of Contents
+
+- [✨ Overview](#-overview)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [📁 Project Structure](#-project-structure)
+- [🚀 Backend API](#-backend-api)
+- [🧠 Model Details](#-model-details)
+- [📊 Dataset Snapshot](#-dataset-snapshot)
+- [🔄 End-to-End Workflow](#-end-to-end-workflow)
+- [⚙️ Setup and Run](#️-setup-and-run)
+- [🔧 Troubleshooting](#-troubleshooting)
+- [🌐 Environment Variables](#-environment-variables)
+- [🖥️ Frontend Notes](#️-frontend-notes)
+- [📝 Notes](#-notes)
+
+---
+
+## ✨ Overview
+
+**BeejVaidya** is a full-stack, end-to-end crop disease detection system that enables farmers to quickly diagnose plant health issues by simply uploading a leaf image.
+
+<table>
+<tr>
+<td>🔬 <strong>AI Inference</strong></td>
+<td>FastAPI backend with TensorFlow/Keras MobileNetV2 model</td>
+</tr>
+<tr>
+<td>🌿 <strong>Disease Classes</strong></td>
+<td><code>early_blight</code> · <code>healthy</code> · <code>late_blight</code></td>
+</tr>
+<tr>
+<td>💊 <strong>Treatment Guidance</strong></td>
+<td>Disease-specific treatment & prevention recommendations</td>
+</tr>
+<tr>
+<td>🤖 <strong>LLM Explanations</strong></td>
+<td>Optional OpenAI-powered explanations with rule-based fallback</td>
+</tr>
+<tr>
+<td>🖥️ <strong>Frontend</strong></td>
+<td>Clean HTML/CSS/JS upload UI with result display</td>
+</tr>
+</table>
+
+---
+
+## 🛠️ Tech Stack
+
+<table>
+<thead>
+<tr><th>Layer</th><th>Technology</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td>🐍 <strong>Runtime</strong></td><td>Python 3.10</td><td>Recommended for TensorFlow compatibility</td></tr>
+<tr><td>⚡ <strong>Backend</strong></td><td>FastAPI + Uvicorn</td><td>High-performance async API server</td></tr>
+<tr><td>🧠 <strong>ML Framework</strong></td><td>TensorFlow / Keras</td><td>MobileNetV2 transfer learning</td></tr>
+<tr><td>🔢 <strong>Numerics</strong></td><td>NumPy</td><td>Array operations & preprocessing</td></tr>
+<tr><td>🖼️ <strong>Imaging</strong></td><td>Pillow</td><td>Image validation & processing</td></tr>
+<tr><td>📐 <strong>ML Utilities</strong></td><td>Scikit-learn</td><td>Dataset utilities (listed dependency)</td></tr>
+<tr><td>📊 <strong>Visualization</strong></td><td>Matplotlib</td><td>Plots & charts (listed dependency)</td></tr>
+<tr><td>🌐 <strong>Frontend</strong></td><td>HTML · CSS · JavaScript</td><td>Vanilla UI with <code>fetch</code> / <code>FormData</code></td></tr>
+<tr><td>🤖 <strong>LLM</strong></td><td>OpenAI Chat Completions API</td><td>Optional AI-generated explanations</td></tr>
+</tbody>
+</table>
+
+---
+
+## 📁 Project Structure
 
 ```text
 crop_disease_detection/
-├── api/
+├── 📂 api/
 │   └── main.py                  # FastAPI app, model load, prediction logic, logging
-├── dataset/
+├── 📂 dataset/
 │   ├── raw/
 │   │   ├── early_blight/
 │   │   ├── healthy/
@@ -41,38 +112,40 @@ crop_disease_detection/
 │       ├── train/
 │       ├── val/
 │       └── test/
-├── frontend/
+├── 📂 frontend/
 │   ├── index.html               # Upload UI + result display
 │   ├── script.js                # Calls backend /predict endpoint
 │   └── style.css                # Styling
-├── logs/
+├── 📂 logs/
 │   └── predictions.csv          # Inference logs
-├── models/
+├── 📂 models/
 │   └── crop_disease_model.h5    # Trained Keras model artifact
-├── results/
+├── 📂 results/
 │   ├── logs/
 │   └── reports/
-├── scripts/
+├── 📂 scripts/
 │   ├── split_dataset.py         # 70/15/15 split from dataset/raw -> dataset/split
 │   ├── train_model.py           # Train MobileNetV2 classifier + save best model
 │   └── predict.py               # CLI single-image prediction
-├── utils/
+├── 📂 utils/
 │   ├── treatment_map.py         # Disease -> treatment/prevention mapping
 │   ├── llm_explainer.py         # Optional OpenAI-based explanation with fallback
 │   └── explain_disease.py       # Rule-based explanation helper
-├── requirements.txt
-├── setup_project.py             # Scaffold generator for directories/files
-└── README.md
+├── 📄 requirements.txt
+├── 🔧 setup_project.py          # Scaffold generator for directories/files
+└── 📖 README.md
 ```
 
-## Backend API
+---
 
-Base URL (local): `http://127.0.0.1:8000`
+## 🚀 Backend API
+
+**Base URL (local):** `http://127.0.0.1:8000`
 
 ### `GET /health`
-Health check + model load status.
 
-Example response:
+> Health check + model load status.
+
 ```json
 {
   "status": "ok",
@@ -81,23 +154,45 @@ Example response:
 }
 ```
 
+---
+
 ### `POST /predict`
-Accepts one uploaded image file (`multipart/form-data`, field name: `file`).
 
-Core behavior in `api/main.py`:
-- Validates uploaded image using Pillow
-- Performs a leaf-likeness check using green pixel ratio in HSV
-- Runs model inference (`models/crop_disease_model.h5`)
-- Applies uncertainty handling:
-  - If image is not leaf-like -> `UNCERTAIN`
-  - If confidence `< 0.75` -> `UNCERTAIN`
-- Adds treatment + prevention guidance from `utils/treatment_map.py`
-- Generates explanation via `utils/llm_explainer.py`
-  - Uses OpenAI API if `OPENAI_API_KEY` is set
-  - Falls back to built-in template otherwise
-- Logs each prediction to `logs/predictions.csv`
+> Accepts one uploaded image file (`multipart/form-data`, field name: `file`).
 
-Example `curl`:
+**Processing Pipeline:**
+
+```
+Upload Image
+     │
+     ▼
+🖼️  Validate with Pillow
+     │
+     ▼
+🌿  Leaf-likeness Check (HSV green pixel ratio)
+     │
+     ▼
+🧠  Model Inference (crop_disease_model.h5)
+     │
+     ▼
+📊  Confidence Check (threshold: 0.75)
+     │                    │
+  ≥ 0.75              < 0.75 or not leaf
+     │                    │
+     ▼                    ▼
+🏷️  Predicted Class    ⚠️  UNCERTAIN
+     │
+     ▼
+💊  Treatment + Prevention (treatment_map.py)
+     │
+     ▼
+🤖  Explanation (OpenAI API or rule-based fallback)
+     │
+     ▼
+📝  Log to predictions.csv
+```
+
+**Example `curl`:**
 ```bash
 curl -X POST "http://127.0.0.1:8000/predict" \
   -H "accept: application/json" \
@@ -105,55 +200,71 @@ curl -X POST "http://127.0.0.1:8000/predict" \
   -F "file=@image.jpg"
 ```
 
-## Model Details
+---
+
+## 🧠 Model Details
 
 Implemented in `scripts/train_model.py`:
-- Base model: `MobileNetV2` with ImageNet weights, top removed
-- Input size: `224x224x3`
-- Head: `GlobalAveragePooling2D -> Dense(128, relu) -> Dropout(0.3) -> Dense(3, softmax)`
-- Training setup:
-  - Batch size: `32`
-  - Epochs: `15`
-  - Loss: `categorical_crossentropy`
-  - Optimizer: `Adam`
-  - Metric: `accuracy`
-- Augmentation on train set:
-  - Rescale, rotation, zoom, horizontal flip
-- Checkpoint:
-  - Saves best model by validation accuracy to `models/crop_disease_model.h5`
 
-Inference logic uses:
-- Class order: `early_blight`, `healthy`, `late_blight`
-- Confidence threshold: `0.75`
-- Leaf green ratio guard: `0.05` in API (`0.10` in CLI script)
+| Parameter | Value |
+|-----------|-------|
+| **Base Model** | MobileNetV2 (ImageNet weights, top removed) |
+| **Input Size** | `224 × 224 × 3` |
+| **Head Architecture** | `GlobalAveragePooling2D → Dense(128, relu) → Dropout(0.3) → Dense(3, softmax)` |
+| **Batch Size** | `32` |
+| **Epochs** | `15` |
+| **Loss Function** | `categorical_crossentropy` |
+| **Optimizer** | `Adam` |
+| **Metric** | `accuracy` |
+| **Confidence Threshold** | `0.75` |
+| **Leaf Green Ratio Guard** | `0.05` (API) · `0.10` (CLI) |
 
-## Dataset Snapshot (Current Repository)
+**Data Augmentation (train set):**
+- ↻ Rotation &nbsp;·&nbsp; 🔍 Zoom &nbsp;·&nbsp; ↔️ Horizontal flip &nbsp;·&nbsp; 📐 Rescale
 
-`dataset/raw` currently contains:
-- `early_blight`: 1000 images
-- `healthy`: 1591 images
-- `late_blight`: 1909 images
+> **Checkpoint:** Saves best model by validation accuracy to `models/crop_disease_model.h5`
 
-`dataset/split` currently contains:
-- Train: 700 / 1113 / 1336
-- Val: 150 / 238 / 286
-- Test: 150 / 240 / 287
+---
 
-(ordered as `early_blight / healthy / late_blight`)
+## 📊 Dataset Snapshot
 
-## End-to-End Workflow
+### Raw Dataset (`dataset/raw`)
 
-1. Prepare class-wise images in `dataset/raw/<class_name>/`.
-2. Split the dataset into train/val/test.
-3. Train model and save best checkpoint to `models/`.
-4. Start FastAPI backend, which loads model at startup.
-5. Upload leaf image from frontend (or call API directly).
-6. Receive prediction, confidence, guidance, explanation, and metadata.
-7. Persist prediction log in `logs/predictions.csv`.
+| Class | Images |
+|-------|--------|
+| 🟡 `early_blight` | 1,000 |
+| 🟢 `healthy` | 1,591 |
+| 🔴 `late_blight` | 1,909 |
+| **Total** | **4,500** |
 
-## Setup and Run
+### Split Dataset (`dataset/split`) — 70 / 15 / 15
 
-### 1. Create a Python 3.10 virtual environment
+| Split | early_blight | healthy | late_blight | Total |
+|-------|-------------|---------|-------------|-------|
+| 🏋️ Train | 700 | 1,113 | 1,336 | 3,149 |
+| ✅ Val | 150 | 238 | 286 | 674 |
+| 🧪 Test | 150 | 240 | 287 | 677 |
+
+---
+
+## 🔄 End-to-End Workflow
+
+```
+Step 1 ──▶  📁  Prepare class-wise images in dataset/raw/<class_name>/
+Step 2 ──▶  ✂️  Split dataset into train / val / test
+Step 3 ──▶  🏋️  Train model and save best checkpoint to models/
+Step 4 ──▶  ▶️  Start FastAPI backend (loads model at startup)
+Step 5 ──▶  📤  Upload leaf image from frontend (or call API directly)
+Step 6 ──▶  📬  Receive prediction, confidence, guidance, explanation & metadata
+Step 7 ──▶  📝  Persist prediction log to logs/predictions.csv
+```
+
+---
+
+## ⚙️ Setup and Run
+
+### Step 1 — Create a Python 3.10 Virtual Environment
+
 ```bash
 python3.10 -m venv .venv
 source .venv/bin/activate
@@ -161,9 +272,12 @@ python -m pip install --upgrade pip setuptools wheel
 python -m pip install -r requirements.txt
 ```
 
-Why Python 3.10: TensorFlow wheels are not available for Python 3.14 in this project setup.
+> ⚠️ **Why Python 3.10?** TensorFlow wheels are not available for Python 3.14 in this project setup.
 
-### 2. Configure environment variables
+---
+
+### Step 2 — Configure Environment Variables
+
 Create a `.env` file in the project root:
 
 ```bash
@@ -173,66 +287,119 @@ OPENAI_MODEL=gpt-4o-mini
 EOF
 ```
 
-`utils/llm_explainer.py` reads this `.env` file automatically.
+> `utils/llm_explainer.py` reads this `.env` file automatically.
 
-### 3. (Optional) Regenerate scaffold
+---
+
+### Step 3 — (Optional) Regenerate Scaffold
+
 ```bash
 python setup_project.py
 ```
 
-### 4. Split dataset
+---
+
+### Step 4 — Split Dataset
+
 ```bash
 python scripts/split_dataset.py
 ```
 
-### 5. Train model
+---
+
+### Step 5 — Train Model
+
 ```bash
 python scripts/train_model.py
 ```
 
-### 6. Run backend API
+---
+
+### Step 6 — Run Backend API
+
 ```bash
 python -m uvicorn api.main:app --host 127.0.0.1 --port 8000 --reload
 ```
 
-### 7. Run frontend
+---
+
+### Step 7 — Run Frontend
+
 From another terminal:
+
 ```bash
 cd frontend
 python -m http.server 5500
 ```
-Open `http://127.0.0.1:5500` in browser.
 
-## Troubleshooting
+Then open **[http://127.0.0.1:5500](http://127.0.0.1:5500)** in your browser. 🌐
 
-- `bad interpreter: .../venv/bin/python3.10: No such file or directory`
-  - Cause: virtual environment was created in a different path and then moved.
-  - Fix: delete that environment and recreate it in the current project path.
+---
 
-- `No matching distribution found for tensorflow`
-  - Cause: running `pip install tensorflow` with an unsupported Python version (commonly 3.14).
-  - Fix: use Python 3.10 and reinstall dependencies inside `.venv`.
+## 🔧 Troubleshooting
 
-- `ModuleNotFoundError: No module named 'tensorflow'`
-  - Cause: backend started with a Python interpreter that does not have TensorFlow installed.
-  - Fix: activate `.venv` first, then run backend using `python -m uvicorn ...`.
+<details>
+<summary>❌ <code>bad interpreter: .../venv/bin/python3.10: No such file or directory</code></summary>
 
-## Environment Variables
+**Cause:** Virtual environment was created in a different path and then moved.  
+**Fix:** Delete that environment and recreate it in the current project path.
+
+</details>
+
+<details>
+<summary>❌ <code>No matching distribution found for tensorflow</code></summary>
+
+**Cause:** Running `pip install tensorflow` with an unsupported Python version (commonly 3.14).  
+**Fix:** Use Python 3.10 and reinstall dependencies inside `.venv`.
+
+</details>
+
+<details>
+<summary>❌ <code>ModuleNotFoundError: No module named 'tensorflow'</code></summary>
+
+**Cause:** Backend started with a Python interpreter that does not have TensorFlow installed.  
+**Fix:** Activate `.venv` first, then run backend using `python -m uvicorn ...`.
+
+</details>
+
+---
+
+## 🌐 Environment Variables
 
 Variables used by `utils/llm_explainer.py` (loaded from project-root `.env`):
-- `OPENAI_API_KEY` -> enables OpenAI-generated explanations
-- `OPENAI_MODEL` -> defaults to `gpt-4o-mini`
 
-If `OPENAI_API_KEY` is missing or request fails, fallback explanation text is used.
+| Variable | Required | Default | Description |
+|----------|----------|---------|-------------|
+| `OPENAI_API_KEY` | Optional | — | Enables OpenAI-generated explanations |
+| `OPENAI_MODEL` | Optional | `gpt-4o-mini` | OpenAI model to use for explanations |
 
-## Frontend Notes
+> 💡 If `OPENAI_API_KEY` is missing or the request fails, a built-in fallback explanation template is used automatically.
+
+---
+
+## 🖥️ Frontend Notes
 
 `frontend/script.js` currently points to:
-- `const API_URL = "http://127.0.0.1:8000/predict"`
 
-If your backend runs on a different host/port, update this constant.
+```javascript
+const API_URL = "http://127.0.0.1:8000/predict"
+```
 
-## Notes
+> ⚠️ If your backend runs on a different host or port, update this constant accordingly.
+
+---
+
+## 📝 Notes
 
 - The repository currently includes training, splitting, and single-image prediction scripts.
 - Dataset validation and evaluation-report scripts can be added later if needed.
+
+---
+
+<div align="center">
+
+Made with ❤️ for farmers &nbsp;·&nbsp; Powered by 🤖 AI &nbsp;·&nbsp; Built with 🐍 Python
+
+**BeejVaidya** — *Bringing intelligent crop diagnostics to every field* 🌾
+
+</div>
