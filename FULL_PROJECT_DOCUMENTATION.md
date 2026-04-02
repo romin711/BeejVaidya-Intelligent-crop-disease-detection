@@ -11,7 +11,7 @@ Farmers often lack timely access to agronomy experts and diagnostic tools, which
 
 ## 4. Solution Overview
 The system uses:
-- A MobileNetV2 transfer-learning classifier trained on tomato leaf images.
+- A MobileNetV2 transfer-learning classifier trained on leaf images.
 - A FastAPI inference service (`/predict`, `/health`).
 - A frontend upload interface (HTML/CSS/JS).
 - Safety gates for non-leaf images and low-confidence predictions.
